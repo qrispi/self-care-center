@@ -9,19 +9,23 @@
     <h1 class="white-text">&#10024 Self Care Center &#10024</h1>
   </header>
   <body>
-    <section>
+    <form>
       <h2 class="white-text">Which type of message?</h2>
-      <div>
-        <input type="radio" id="affirm-button"/>
-        <label for="affirm-button">affirmation</label>
-      </div>
-      <div>
-        <input type="radio" id="mantra-button"/>
-        <label for="mantra-button">mantra</label>
-      </div>
-      <button type="submit" class="white-text" id="receive-button">Receive Message</button>
-    </section>
-    <section>
+      <section class="all-buttons">
+        <div class="radio-inputs">
+          <div>
+            <input type="radio" id="affirm-button"/>
+            <label for="affirm-button">affirmation</label>
+          </div>
+          <div>
+            <input type="radio" id="mantra-button"/>
+            <label for="mantra-button">mantra</label>
+          </div>
+        </div>
+        <button type="submit" class="white-text" id="receive-button">Receive Message</button>
+      </section>
+    </form>
+    <section class="message-section">
       <img id="dude" src="assets/meditate.svg" />
     </section>
     <script type="text/javascript" src="main.js"></script>
