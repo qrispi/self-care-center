@@ -9,13 +9,31 @@ black - #000000;
 
 body {
     background-image: linear-gradient(#134d71, #78a7c6, #f7e4bf);
-    background-repeat: no-repeat;
-    background-size: cover;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Quicksand', sans-serif;
 }
 
 #dude {
-    height: 5000px;
-    width: 3000px;
+    height: 90px;
+    width: 60px;
+}
+
+.white-text {
+    color: white;
+}
+
+#receive-button {
+    background-color: #134d71;
+    border: 0;
+    border-radius: 5px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2vh;
+    height: 3vh;
+    width: 25vh;
 }
 /* body {
     background-color: pink
