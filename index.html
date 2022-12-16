@@ -3,9 +3,34 @@
   <head>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
   </head>
+  <header>
+    <h1 class="white-text">&#10024 Self Care Center &#10024</h1>
+  </header>
   <body>
-  <img id="dude" src="assets/meditate.svg" />
+    <form>
+      <h2 class="white-text">Which type of message?</h2>
+      <section class="all-buttons">
+        <div class="radio-inputs">
+          <div class="affirm">
+            <input type="radio" name="msg-buttons" class="msg-buttons" value="affirmation" id="affirm-button"/>
+            <label for="affirm-button">affirmation</label>
+          </div>
+          <div class="mantra">
+            <input type="radio" name="msg-buttons" class="msg-buttons" value="mantra" id="mantra-button"/>
+            <label for="mantra-button">mantra</label>
+          </div>
+        </div>
+        <input type="submit" class="white-text" value="Receive Message" id="receive-button"/>
+      </section>
+    </form>
+    <section class="message-section">
+      <img id="dude" src="assets/meditate.svg" />
+    </section>
     <script type="text/javascript" src="main.js"></script>
   </body>
 </html>
+
+<!-- <img id="dude" src="assets/meditate.svg" /> -->
+<!-- <i>affirmation</i> -->
