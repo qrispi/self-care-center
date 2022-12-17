@@ -20,28 +20,40 @@ function recordMessage(msgArray) {
     var currentMsg = getRandomMessage(msgArray)
     if (affirmSelect.checked) {
         var msgIndex = affirmations.indexOf(currentMsg)
-        affirmations.splice(msgIndex, 1)
         if (currentMsg) {
             usedAffirmations.push(currentMsg)
         }
         if (affirmations.length > 0) {
             displayNewMsg(currentMsg)
+            affirmations.splice(msgIndex, 1)
         } else {
-            alert('You have seen all the affirmations. Please refresh the page or select a mantra.')
+            resetMessages('a')
+            alert('You have seen all the affirmations. Feel free to look at the mantras, the affirmation messages will now reset.')
         }
     } else {
         var msgIndex = mantras.indexOf(currentMsg)
-        mantras.splice(msgIndex, 1)
         if (currentMsg) {
             usedMantras.push(currentMsg)
         }
         if (mantras.length > 0) {
             displayNewMsg(currentMsg)
+            mantras.splice(msgIndex, 1)
         } else {
-            alert('You have seen all the mantras. Please refresh the page or select a affirmation.')
+            resetMessages('m')
+            alert('You have seen all the mantras. Feel free to look at the affirmations, the mantra messages will now reset.')
         }
     }
     
+}
+
+function resetMessages(code) {
+    if (code === 'a') {
+        affirmations = usedAffirmations.splice(0)
+        recordMessage(affirmations)
+    } else {
+        mantras = usedMantras.splice(0)       
+        recordMessage(mantras)
+    }
 }
 
 function displayNewMsg(currentMsg) {
