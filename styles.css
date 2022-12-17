@@ -58,6 +58,7 @@ h2 {
     margin-right: 1vw;
     height: 2.75vh;
     width: 2.75vw;
+    accent-color: blue;
 }
 
 #receive-button {
@@ -79,4 +80,8 @@ h2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.hidden {
+    display: none;
 }
