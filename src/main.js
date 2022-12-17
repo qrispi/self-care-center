@@ -16,14 +16,13 @@ function retrieveSelection(event) {
     }
 }
 
+// I think this function can be made half the size it is now by making the first if and elses reusable with dynamic inputs based of array chosen
 function recordMessage(msgArray) {
     var currentMsg = getRandomMessage(msgArray)
     if (affirmSelect.checked) {
         var msgIndex = affirmations.indexOf(currentMsg)
         if (currentMsg) {
             usedAffirmations.push(currentMsg)
-        }
-        if (affirmations.length > 0) {
             displayNewMsg(currentMsg)
             affirmations.splice(msgIndex, 1)
         } else {
@@ -34,8 +33,6 @@ function recordMessage(msgArray) {
         var msgIndex = mantras.indexOf(currentMsg)
         if (currentMsg) {
             usedMantras.push(currentMsg)
-        }
-        if (mantras.length > 0) {
             displayNewMsg(currentMsg)
             mantras.splice(msgIndex, 1)
         } else {
