@@ -6,28 +6,28 @@
     <meta charset="UTF-8">
   </head>
   <header>
-    <h1 class="white-text">&#10024 Self Care Center &#10024</h1>
+    <h1>&#10024 Self Care Center &#10024</h1>
   </header>
   <body>
     <form>
-      <h2 class="white-text">Which type of message?</h2>
-      <section class="all-buttons">
-        <div class="radio-inputs">
-          <div class="affirm">
-            <input type="radio" name="msg-buttons" class="msg-buttons" value="affirmation" id="affirm-button"/>
+      <h2>Which type of message?</h2>
+      <section class="buttons-container">
+        <div class="radios-container">
+          <div class="radio-margin">
+            <input type="radio" name="msg-buttons" class="radio-buttons" value="affirmation" id="affirm-button"/>
             <label for="affirm-button">affirmation</label>
           </div>
-          <div class="mantra">
-            <input type="radio" name="msg-buttons" class="msg-buttons" value="mantra" id="mantra-button"/>
+          <div>
+            <input type="radio" name="msg-buttons" class="radio-buttons" value="mantra" id="mantra-button"/>
             <label for="mantra-button">mantra</label>
           </div>
         </div>
-        <input type="submit" class="white-text" value="Receive Message" id="receive-button"/>
+        <input type="submit" value="Receive Message" id="receive-button"/>
       </section>
     </form>
-    <section class="message-section">
+    <main class="message-section">
       <img id="dude" src="assets/meditate.svg" />
-    </section>
+    </main>
     <script type="text/javascript" src="./src/data.js"></script>
     <script type="text/javascript" src="./src/main.js"></script>
   </body>
