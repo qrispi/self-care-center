@@ -8,49 +8,56 @@ receiveMsgButton.addEventListener('click', retrieveSelection)
 function retrieveSelection(event) {
     event.preventDefault()
     if (affirmSelect.checked) {
-        recordMessage(affirmations)
+        updateDataModel(affirmations)
     } else if (mantraSelect.checked) {
-        recordMessage(mantras)
+        updateDataModel(mantras)
     } else {
-        alert('Please select which type of message you would like to receive')
+        askUserToChoose()
     }
 }
 
-function recordMessage(msgArray) {
+function askUserToChoose() {
+    messageBox.innerHTML = '<p>&#10024 To receive zen knowledge, please select <i>affirmation</i> or <i>mantra</i> above! &#10024</p>'
+}
+
+function updateDataModel(msgArray) {
     var currentMsg = getRandomMessage(msgArray)
-    if (affirmSelect.checked) {
-        var msgIndex = affirmations.indexOf(currentMsg)
-        affirmations.splice(msgIndex, 1)
-        if (currentMsg) {
+    var msgIndex = msgArray.indexOf(currentMsg)
+    if (currentMsg) {
+        displayNewMessage(currentMsg)
+        msgArray.splice(msgIndex, 1)
+        if (msgArray === mantras) {
+            usedMantras.push(currentMsg)
+        } else {
             usedAffirmations.push(currentMsg)
         }
-        if (affirmations.length > 0) {
-            displayNewMsg(currentMsg)
-        } else {
-            alert('You have seen all the affirmations. Please refresh the page or select a mantra.')
-        }
     } else {
-        var msgIndex = mantras.indexOf(currentMsg)
-        mantras.splice(msgIndex, 1)
-        if (currentMsg) {
-            usedMantras.push(currentMsg)
-        }
-        if (mantras.length > 0) {
-            displayNewMsg(currentMsg)
-        } else {
-            alert('You have seen all the mantras. Please refresh the page or select a affirmation.')
-        }
+        refreshMessages(msgArray)
     }
-    
 }
 
-function displayNewMsg(currentMsg) {
-    messageBox.innerHTML = `
-    <p>${currentMsg}</p>
-    `
+function resetArray(msgArray) {
+    if (msgArray === affirmations) {
+        affirmations = usedAffirmations.splice(0)
+    } else {
+        mantras = usedMantras.splice(0)       
+    }
+}
+
+function displayNewMessage(currentMsg) {
+    messageBox.innerHTML = `<p class="msg-text">${currentMsg}</p>`
+}
+
+function refreshMessages(msgArray) {
+    if (msgArray === mantras) {
+        messageBox.innerHTML = '<p>&#10024 You have seen all the Mantras! &#10024</p><p class="reset-text">The mantras will now reset.</p>'
+        resetArray(msgArray)
+    } else {
+        messageBox.innerHTML = '<p>&#10024 You have seen all the Affirmations! &#10024</p><p class="reset-text">The affirmations will now reset.</p>'
+        resetArray(msgArray)
+    }
 }
 
 function getRandomMessage(array) {
-    var randomNum = Math.floor(Math.random() * array.length)
-    return array[randomNum]
+    return array[Math.floor(Math.random() * array.length)]
 }
