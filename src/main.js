@@ -16,40 +16,27 @@ function retrieveSelection(event) {
     }
 }
 
-// I think this function can be made half the size it is now by making the first if and elses reusable with dynamic inputs based of array chosen
 function recordMessage(msgArray) {
     var currentMsg = getRandomMessage(msgArray)
-    if (affirmSelect.checked) {
-        var msgIndex = affirmations.indexOf(currentMsg)
-        if (currentMsg) {
-            usedAffirmations.push(currentMsg)
-            displayNewMsg(currentMsg)
-            affirmations.splice(msgIndex, 1)
+    var msgIndex = msgArray.indexOf(currentMsg)
+    if (currentMsg) {
+        displayNewMsg(currentMsg)
+        msgArray.splice(msgIndex, 1)
+        if (msgArray === mantras) {
+            usedMantras.push(currentMsg)
         } else {
-            resetMessages('a')
-            alert('You have seen all the affirmations. Feel free to look at the mantras, the affirmation messages will now reset.')
+            usedAffirmations.push(currentMsg)
         }
     } else {
-        var msgIndex = mantras.indexOf(currentMsg)
-        if (currentMsg) {
-            usedMantras.push(currentMsg)
-            displayNewMsg(currentMsg)
-            mantras.splice(msgIndex, 1)
-        } else {
-            resetMessages('m')
-            alert('You have seen all the mantras. Feel free to look at the affirmations, the mantra messages will now reset.')
-        }
+        refreshMessages(msgArray)
     }
-    
 }
 
-function resetMessages(code) {
-    if (code === 'a') {
+function resetArrays(msgArray) {
+    if (msgArray === affirmations) {
         affirmations = usedAffirmations.splice(0)
-        recordMessage(affirmations)
     } else {
         mantras = usedMantras.splice(0)       
-        recordMessage(mantras)
     }
 }
 
@@ -57,6 +44,17 @@ function displayNewMsg(currentMsg) {
     messageBox.innerHTML = `
     <p>${currentMsg}</p>
     `
+}
+
+function refreshMessages(msgArray) {
+    if (msgArray === mantras) {
+        messageBox.innerHTML = 
+        '<p>&#10024 You have seen all the Mantras! &#10024</p><p><i>The mantras will now reset.</i></p>'
+        resetArrays(msgArray)
+    } else {
+        messageBox.innerHTML = '<p>&#10024 You have seen all the Affirmations! &#10024</p><p><i>The affirmations will now reset.</i></p>'
+        resetArrays(msgArray)
+    }
 }
 
 function getRandomMessage(array) {
