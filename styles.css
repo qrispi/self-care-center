@@ -10,25 +10,19 @@ body {
 }
 
 h1 {
+    color: white;
     font-size: 4vh;
     margin-top: 5.5vh;
     margin-bottom: 10vh;
 }
 
 h2 {
+    color: white;
     font-size: 3vh;
     margin-bottom: 1vh;
 }
 
-.radio-inputs {
-    font-size: 2.5vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    font-style: italic;
-}
-
-.all-buttons {
+.buttons-container {
     height: 12vh;
     width: 40vw;
     background-color: white;
@@ -41,28 +35,28 @@ h2 {
     padding-top: 1vh;
 }
 
-#dude {
-    height: 10vh;
-    width: 6vw;
+.radios-container {
+    font-size: 2.5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-style: italic;
 }
 
-.white-text {
-    color: white;
-}
-
-.affirm {
-    margin-right: 12vw;
-}
-
-.msg-buttons {
+.radio-buttons {
     margin-right: 1vw;
     height: 2.75vh;
     width: 2.75vw;
-    accent-color: blue;
+    accent-color: #134d71;
+}
+
+.radio-margin {
+    margin-right: 12vw;
 }
 
 #receive-button {
     background-color: #134d71;
+    color: rgba(255, 255, 255, 0.9);
     border: 0;
     border-radius: 0.75vh;
     font-family: 'Quicksand', sans-serif;
@@ -74,6 +68,7 @@ h2 {
 .message-section {
     height: 20vh;
     width: 60vw;
+    padding: 0 6vh 0 6vh;
     background-color: white;
     font-size: 3vh;
     border-radius: 1vh;
@@ -83,6 +78,13 @@ h2 {
     align-items: center;
 }
 
-.hidden {
-    display: none;
+#dude {
+    height: 10vh;
+    width: 6vw;
+}
+
+.reset-text {
+    font-style: italic;
+    font-size: 2.5vh;
+    margin-top: -1.5vh;
 }
